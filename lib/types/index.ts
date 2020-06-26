@@ -1,13 +1,6 @@
 import * as api from '@opentelemetry/api';
 import { HttpTraceContext } from '@opentelemetry/core';
 
-export interface ExporterConfig {
-    logger?: api.Logger;
-    APIHost: string;
-    APIKey: string;
-    dataset: string;
-}
-
 export interface PropagationContext {
     traceId: string;
     parentSpanId: string;
