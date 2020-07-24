@@ -242,7 +242,7 @@ beeline.unmarshalTraceContext(traceContext);
 
 Returns an object containing the properties `traceId`, `parentSpanId`, `dataset`, and `customContext` which are the four optional parameters with `startTrace()` above.
 
-`customContext` will include any custom fields propagated from other services, such as with `beeline.addContext()`.
+`customContext` will include any custom fields propagated from other services, such as with `beeline.addTraceContext()`.
 
 example:
 
@@ -255,11 +255,11 @@ let trace = startTrace({ name }, traceId, parentSpanId);
 ```
 
 ```javascript
-let { traceId, parentSpanId, customContext } = beeline.unmarshalTraceContext(
+let { traceId, parentSpanId, dataset, customContext } = beeline.unmarshalTraceContext(
   req.header[beeline.TRACE_HTTP_HEADER]
 );
 
-let trace = startTrace({ name }, traceId, parentSpanId, customContext);
+let trace = startTrace({ name }, traceId, parentSpanId, dataset, customContext);
 ```
 
 #### TRACE_HTTP_HEADER
